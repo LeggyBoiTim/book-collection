@@ -18,12 +18,10 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
-        $author = Author::inRandomOrder()->first();
-        
         return [
-            'author_id' => $author->id,
-            'user_id' => $author->user_id,
+            'author_id' => Author::inRandomOrder()->first()->id,
             'title' => $this->faker->sentence(),
+            'summary' => $this->faker->paragraph(),
         ];
     }
 }

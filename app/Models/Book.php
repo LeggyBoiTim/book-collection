@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['author_id', 'user_id', 'title'])]
+#[Fillable(['author_id', 'title', 'summary'])]
 class Book extends Model
 {
     /** @use HasFactory<BookFactory> */
@@ -17,11 +17,6 @@ class Book extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(Author::class);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 
     public function reviews(): HasMany
