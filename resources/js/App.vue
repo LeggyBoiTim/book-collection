@@ -1,8 +1,8 @@
 <template>
     <nav>
-        <router-link :to="{name: 'authors.overview'}">Auteurs Overzicht</router-link> |
-        <router-link :to="{name: 'books.overview'}">Boeken Overzicht</router-link> |
-        <router-link :to="{name: 'books.create'}">Nieuw Boek</router-link>
+        <RouterLink :to="{name: 'authors.overview'}">Auteurs overzicht</RouterLink> |
+        <RouterLink :to="{name: 'books.overview'}">Boeken overzicht</RouterLink> |
+        <RouterLink :to="{name: 'books.create'}">Nieuw boek toevoegen</RouterLink>
     </nav>
     <router-view></router-view>
 </template>

@@ -1,13 +1,8 @@
 import axios from 'axios';
 import { ref, computed } from 'vue';
 
-interface Author {
-    id: number;
-    name: string;
-}
-
 // state
-const authors = ref<Author[]>([]);
+const authors = ref([]);
 
 // getters
 export const getAllAuthors = computed(() => authors.value);
