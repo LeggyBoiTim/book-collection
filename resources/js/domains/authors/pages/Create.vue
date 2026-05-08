@@ -12,7 +12,7 @@ const author = ref({
 
 const handleSubmit = async (data) => {
     await createAuthor(data);
-    router.push({name: 'authors.overview'});
+    router.push({ name: 'authors.overview' });
 };
 </script>
 

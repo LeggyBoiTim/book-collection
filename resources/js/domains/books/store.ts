@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { ref, computed } from 'vue';
 import { deleteRequest, getRequest, postRequest, putRequest } from '../../services/http';
 
@@ -11,19 +10,19 @@ export const getBookById = (id) => computed(() => books.value.find(book => book.
 
 // actions
 export const fetchBooks = async () => {
-    const {data} = await getRequest('/books');
+    const { data } = await getRequest('/books');
     if(!data) return
     books.value = data;
 };
 
 export const createBook = async (newBook) => {
-    const {data} = await postRequest('/books', newBook);
+    const { data } = await postRequest('/books', newBook);
     if(!data) return
     books.value = data;
 };
 
 export const updateBook = async (id, updatedBook) => {
-    const {data} = await putRequest(`/books/${id}`, updatedBook);
+    const { data } = await putRequest(`/books/${id}`, updatedBook);
     if (!data) return;
     books.value = data;
 };

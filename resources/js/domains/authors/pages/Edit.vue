@@ -2,14 +2,12 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Form from '../components/Form.vue';
-import { fetchAuthors, getAuthorById, updateAuthor } from '../store';
+import { author, updateAuthor } from '../store';
 
 const route = useRoute();
 const router = useRouter();
 
-fetchAuthors();
-
-const author = getAuthorById(route.params.id);
+const authorById = author(route.params.id);
 
 const handleSubmit = async (data) => {
     await updateAuthor(route.params.id, data);
@@ -20,6 +18,6 @@ const handleSubmit = async (data) => {
 <template>
     <div>
         <h2>Auteur bewerken</h2>
-        <Form v-if="author" :author="author" @submit="handleSubmit" />
+        <Form v-if="authorById" :author="authorById" @submit="handleSubmit" />
     </div>
 </template>
