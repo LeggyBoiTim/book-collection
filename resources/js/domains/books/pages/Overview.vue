@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted } from 'vue';
-import { deleteBook, fetchBooks, getAllBooks } from '../store';
+import { getBooks, deleteBook } from '../store';
 
-fetchBooks();
+const books = getBooks;
 </script>
 
 <template>
@@ -14,7 +14,7 @@ fetchBooks();
             </tr>
         </thead>
         <tbody>
-            <tr v-for="book in getAllBooks" :key="book.id">
+            <tr v-for="book in books" :key="book.id">
                 <td>{{ book.title }}</td>
                 <td>{{ book.summary }}</td>
                 <td><RouterLink :to="{ name: 'books.edit', params: { id: book.id } }">Bewerk</RouterLink></td>

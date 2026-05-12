@@ -2,6 +2,7 @@ import { storeModuleFactory } from '../../services/store';
 import { onMounted } from 'vue';
 
 const authorStore = storeModuleFactory('authors');
+
 authorStore.actions.getAll();
 
 // getters
