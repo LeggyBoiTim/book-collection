@@ -14,7 +14,7 @@ export const storeModuleFactory = (moduleName) => {
             for (const item of items) state.value[item.id] = Object.freeze(item);
         },
         deleteByItem: (item) => {
-            delete state.value[item.id];
+            delete state.value[item];
         }
     };
 
@@ -27,16 +27,16 @@ export const storeModuleFactory = (moduleName) => {
         create: async (item) => {
             const { data } = await postRequest(moduleName, item);
             if (!data) return;
-            setters.setAll([data]);
+            setters.setAll(data);
         },
         update: async (id, item) => {
             const { data } = await putRequest(`${moduleName}/${id}`, item);
             if (!data) return;
-            setters.setAll([data]);
+            setters.setAll(data);
         },
         delete: async (id) => {
             await deleteRequest(`${moduleName}/${id}`);
-            setters.deleteByItem({ id });
+            setters.deleteByItem(id);
         }
     };
 

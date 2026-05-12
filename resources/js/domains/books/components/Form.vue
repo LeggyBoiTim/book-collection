@@ -1,14 +1,13 @@
 <script setup>
 import { ref } from 'vue';
-import { authors } from '../../authors/store';
+import { getAuthors } from '../../authors/store';
 
 const props = defineProps({ book: Object });
-
 const emit = defineEmits(['submit']);
-
 const form = ref({ ...props.book });
-
 const handleSubmit = () => emit('submit', form.value);
+
+const authors = getAuthors;
 </script>
 
 <template>

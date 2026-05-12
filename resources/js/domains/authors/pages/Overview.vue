@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from 'vue';
-import { authors, deleteAuthor } from '../store';
+import { getAuthors, deleteAuthor } from '../store';
+
+const authors = getAuthors;
 </script>
 
 <template>

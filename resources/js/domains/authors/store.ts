@@ -5,8 +5,8 @@ const authorStore = storeModuleFactory('authors');
 authorStore.actions.getAll();
 
 // getters
-export const authors = authorStore.getters.all;
-export const author = (id) => authorStore.getters.getById(id);
+export const getAuthors = authorStore.getters.all;
+export const getAuthorById = (id) => authorStore.getters.getById(id);
 
 // actions
 export const createAuthor = async (newAuthor) => {
