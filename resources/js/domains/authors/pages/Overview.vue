@@ -1,11 +1,14 @@
 <script setup>
 import { onMounted } from 'vue';
 import { getAuthors, deleteAuthor } from '../store';
+import ErrorMessage from '../../../services/error/ErrorMessage.vue';
 
 const authors = getAuthors;
 </script>
 
 <template>
+    <ErrorMessage />
+
     <table>
         <thead>
             <tr>
