@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { getAuthors } from '../../authors/store';
+import ErrorMessage from '../../../services/error/ErrorMessage.vue';
+import FormError from '../../../services/error/FormError.vue';
 
 const props = defineProps({ book: Object });
 const emit = defineEmits(['submit']);
@@ -11,19 +13,24 @@ const authors = getAuthors;
 </script>
 
 <template>
+    <ErrorMessage />
+
     <form @submit.prevent="handleSubmit">
-        <label>Titel:</label>
-        <input v-model="form.title" type="text" required />
+        <label for="title">Titel:</label>
+        <input id="title" v-model="form.title" type="text" required />
+        <FormError name="title" />
 
-        <label>Samenvatting:</label>
-        <textarea v-model="form.summary" required></textarea>
+        <label for="summary">Samenvatting:</label>
+        <textarea id="summary" v-model="form.summary" required></textarea>
+        <FormError name="summary" />
 
-        <label>Auteur:</label>
-        <select v-model="form.author_id" required>
+        <label for="author_id">Auteur:</label>
+        <select id="author_id" v-model="form.author_id" required>
             <option v-for="author in authors" :key="author.id" :value="author.id">
                 {{ author.name }}
             </option>
         </select>
+        <FormError name="author_id" />
 
         <button type="submit">Opslaan</button>
     </form>
