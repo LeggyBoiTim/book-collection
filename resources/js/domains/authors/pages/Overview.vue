@@ -19,7 +19,7 @@ const authors = getAuthors;
             <tr v-for="author in authors" :key="author.id">
                 <td>{{ author.name }}</td>
                 <td><RouterLink :to="{ name: 'authors.edit', params: { id: author.id } }">Bewerk</RouterLink></td>
-                <td><button @click="deleteAuthor(author.id)" style="cursor: pointer;">Verwijder</button></td>
+                <td><button @click="deleteAuthor(author.id).catch(() => {})" style="cursor: pointer;">Verwijder</button></td>
             </tr>
         </tbody>
     </table>
