@@ -14,21 +14,24 @@ class AuthorController extends Controller
         return AuthorResource::collection(Author::all());
     }
 
-    public function store(StoreAuthorRequest $request) {
+    public function store(StoreAuthorRequest $request)
+    {
         $author = Author::create($request->validated());
 
         $authors = Author::all();
         return AuthorResource::collection($authors);
     }
 
-    public function update(StoreAuthorRequest $request, Author $author) {
+    public function update(StoreAuthorRequest $request, Author $author)
+    {
         $author->update($request->validated());
 
         $authors = Author::all();
         return AuthorResource::collection($authors);
     }
 
-    public function destroy(Author $author) {
+    public function destroy(Author $author)
+    {
         if ($author->books()->exists()) {
             throw new HttpResponseException(response()->json([
                 'message' => 'Deze auteur kan niet worden verwijderd omdat er nog boeken aan gekoppeld zijn.'
