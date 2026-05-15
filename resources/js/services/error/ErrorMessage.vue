@@ -4,7 +4,7 @@ import { getMessage } from '.';
 </script>
 
 <template>
-    <div v-if="getMessage.value">
-        {{ getMessage.value }}
+    <div v-if="getMessage">
+        {{ getMessage }}
     </div>
 </template>
