@@ -17,6 +17,7 @@ const books = getBooks;
             <tr v-for="book in books" :key="book.id">
                 <td>{{ book.title }}</td>
                 <td>{{ book.summary }}</td>
+                <td><RouterLink :to="{ name: 'books.show', params: { id: book.id } }">Bekijk</RouterLink></td>
                 <td><RouterLink :to="{ name: 'books.edit', params: { id: book.id } }">Bewerk</RouterLink></td>
                 <td><button @click="deleteBook(book.id)" style="cursor: pointer;">Verwijder</button></td>
             </tr>

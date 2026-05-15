@@ -21,8 +21,6 @@ class ReviewFactory extends Factory
     {
         return [
             'book_id' => Book::inRandomOrder()->first()->id,
-            'user_id' => User::inRandomOrder()->first()->id,
-            'rating' => $this->faker->numberBetween(1, 5),
             'content' => $this->faker->paragraph(),
         ];
     }
